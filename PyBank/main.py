@@ -2,7 +2,7 @@ import os
 import csv
 from numpy import average
 
-# initialize the column arrays
+# initialize the column lists
 dateArr = []
 plArr = []
 compArr = []
