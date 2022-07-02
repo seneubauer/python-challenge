@@ -7,8 +7,11 @@ dateArr = []
 plArr = []
 compArr = []
 
-# get the csv path
+# get the data source path
 csvPath = os.path.join("Resources", "budget_data.csv")
+
+# get the analysis results path
+txtPath = os.path.join("Analysis", "results.txt")
 
 # open the csv file
 with open(csvPath, encoding="utf") as csvFile:
@@ -45,10 +48,27 @@ dateMax = dateArr[compArr.index(plMax) + 1]
 plMin = min(compArr)
 dateMin = dateArr[compArr.index(plMin) + 1]
 
-# print the results
+# print the results to the terminal
 print("Financial Analysis")
 print("----------------------------------------")
 print(f"Total Months: {totalMonths}")
 print(f"Total: ${plSum:,.2f}")
+print(f"Average Change: ${plAverage:,.2f}")
 print(f"Greatest Increase in Profits: {dateMax} (${plMax:,.2f})")
 print(f"Greatest Decrease in Profits: {dateMin} (${plMin:,.2f})")
+
+# write the results to a text file
+with open(txtPath, "w") as txtFile:
+    txtFile.write("Financial Analysis")
+    txtFile.write("\n")
+    txtFile.write("----------------------------------------")
+    txtFile.write("\n")
+    txtFile.write(f"Total Months: {totalMonths}")
+    txtFile.write("\n")
+    txtFile.write(f"Total: ${plSum:,.2f}")
+    txtFile.write("\n")
+    txtFile.write(f"Average Change: ${plAverage:,.2f}")
+    txtFile.write("\n")
+    txtFile.write(f"Greatest Increase in Profits: {dateMax} (${plMax:,.2f})")
+    txtFile.write("\n")
+    txtFile.write(f"Greatest Decrease in Profits: {dateMin} (${plMin:,.2f})")
