@@ -38,10 +38,11 @@ with open(csvPath, encoding="utf") as csvFile:
 totalVotes = len(voterID)
 
 # part 3+4/5
+count = 0
 for i in range(len(uniqueCandidates)):
-    uniqueCandidatesVotes.append(candidates.count(uniqueCandidates[i]))
-for i in range(len(uniqueCandidates)):
-    uniqueCandidatesPercents.append(uniqueCandidatesVotes[i] / totalVotes)
+    count = candidates.count(uniqueCandidates[i])
+    uniqueCandidatesVotes.append(count)
+    uniqueCandidatesPercents.append(count / totalVotes)
 
 # get first place winner based on highest percentage
 firstVotes = max(uniqueCandidatesVotes)
